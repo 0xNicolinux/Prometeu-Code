@@ -211,7 +211,9 @@ function highlight(code: string, language: Language): string {
     // Identifiers / keywords (allow leading # for preprocessor like #include).
     // Do not include "?" here: ternary operators like `cond ? a : b` are
     // punctuation, not identifiers, and must advance through the fallback path.
-    if (/[A-Za-z_#<]/.test(ch)) {
+    const isPhp = language === "php";
+    const identifierStart = isPhp ? /[A-Za-z_#<$]/ : /[A-Za-z_#<]/;
+    if (identifierStart.test(ch)) {
       let j = i;
       // Special-case: <?php
       if (ch === "<" && code.slice(i, i + 5) === "<?php") {
@@ -224,7 +226,8 @@ function highlight(code: string, language: Language): string {
         i++;
         continue;
       }
-      while (j < n && /[A-Za-z0-9_#]/.test(code[j])) j++;
+      const identifierChar = isPhp ? /[A-Za-z0-9_#$]/ : /[A-Za-z0-9_#]/;
+      while (j < n && identifierChar.test(code[j])) j++;
       const word = code.slice(i, j);
       tokens.push({ type: kwRe.test(word) ? "keyword" : "text", value: word });
       i = j > i ? j : i + 1;

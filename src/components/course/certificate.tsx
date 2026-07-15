@@ -15,7 +15,6 @@ export function Certificate() {
     studentName,
     setStudentName,
     level,
-    streak,
   } = useCourse();
 
   const done = modulesCompleted >= totalModules;

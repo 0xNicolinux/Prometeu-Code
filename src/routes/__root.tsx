@@ -118,9 +118,40 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <HeadContent />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var raw = localStorage.getItem("prometeu-code-theme");
+                  var dark = true;
+                  if (raw) {
+                    var parsed = JSON.parse(raw);
+                    if (parsed && typeof parsed.dark === 'boolean') {
+                      dark = parsed.dark;
+                    }
+                  } else {
+                    var oldRaw = localStorage.getItem("prometeu-code-state-v2");
+                    if (oldRaw) {
+                      var oldParsed = JSON.parse(oldRaw);
+                      if (oldParsed && typeof oldParsed.dark === 'boolean') {
+                        dark = oldParsed.dark;
+                      }
+                    }
+                  }
+                  if (dark) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
       </head>
       <body>
         {children}

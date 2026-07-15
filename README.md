@@ -9,8 +9,8 @@ Projeto de extensão universitária, integrado ao ecossistema **[Prometeu](https
 - **13 módulos** de conteúdo, do "O que é um algoritmo?" até desafios que combinam variáveis, condicionais, loops e funções.
 - **39 exercícios práticos** (3 por módulo: fácil, intermediário e desafio), nos formatos múltipla escolha, verdadeiro/falso e "qual a saída deste código?".
 - **8 linguagens de programação** — Python, JavaScript, Java, C#, C++, C, PHP e Go — com o mesmo conteúdo teórico e os mesmos exercícios adaptados para a sintaxe de cada uma. O usuário escolhe a linguagem uma vez e todo o material se adapta.
-- **Progresso gamificado**: XP, níveis, sequência de dias de estudo (streak) e uma "Conquista Prometeu Code" (certificado gerado como imagem, para baixar ou compartilhar) ao concluir todos os módulos.
-- Todo o progresso é salvo localmente no navegador do usuário (`localStorage`) — não há backend, banco de dados ou login.
+- **Progresso gamificado**: XP, níveis e uma "Conquista Prometeu Code" (certificado gerado como imagem, para baixar ou compartilhar) ao concluir todos os módulos.
+- O tema claro/escuro é salvo localmente no navegador do usuário — não há backend, banco de dados ou login.
 
 ## Como rodar o projeto
 
@@ -53,7 +53,7 @@ src/
     course-data.ts      → todo o conteúdo do curso: os 13 módulos e os 39 exercícios,
                           nas 8 linguagens. Fonte única de verdade do conteúdo.
     course-context.tsx  → estado global do curso (linguagem escolhida, progresso, XP,
-                          tema claro/escuro), persistido em localStorage.
+                          tema claro/escuro), com tema claro/escuro persistido em localStorage.
 ```
 
 Para adicionar ou editar conteúdo (um módulo, um exercício, um exemplo de código), o único
@@ -66,8 +66,8 @@ Este projeto foi desenvolvido para permanecer compatível com os padrões do
 [Prometeu](https://github.com/Nicolinux-dev/Prometeu). Componentes e padrões pensados
 para reuso em outros projetos do ecossistema:
 
-- `course-context.tsx` — padrão de contexto React com persistência em `localStorage` e
-  gamificação (XP, nível, streak) que pode ser adaptado para outras trilhas de ensino.
+- `course-context.tsx` — padrão de contexto React com persistência em `localStorage` (para o tema) e
+  gamificação (XP, nível) que pode ser adaptado para outras trilhas de ensino.
 - `code-block.tsx` — realce de sintaxe leve, sem dependências externas, com suporte a
   múltiplas linguagens.
 
