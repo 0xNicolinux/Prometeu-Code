@@ -80,30 +80,30 @@ export const MODULES: Module[] = [
     summary:
       "Programar = escrever instruções. Algoritmo = passos ordenados. Lógica = raciocínio para montar esses passos.",
     example: cs({
-      python: `# "Olá, mundo" em Python
-        print("Olá, mundo")`,
+python: `# "Olá, mundo" em Python
+print("Olá, mundo")`,
 
-      javascript: `// "Olá, mundo" em JavaScript
-        console.log("Olá, mundo");`,
+javascript: `// "Olá, mundo" em JavaScript
+console.log("Olá, mundo");`,
 
-      java: `// "Olá, mundo" em Java
-        System.out.println("Olá, mundo");`,
+java: `// "Olá, mundo" em Java
+System.out.println("Olá, mundo");`,
 
-      csharp: `// "Olá, mundo" em C#  
-        Console.WriteLine("Olá, mundo");`,
+csharp: `// "Olá, mundo" em C#  
+Console.WriteLine("Olá, mundo");`,
 
-      cpp: `// "Olá, mundo" em C++
-        std::cout << "Olá, mundo" << std::endl;`,
+cpp: `// "Olá, mundo" em C++
+std::cout << "Olá, mundo" << std::endl;`,
 
-      c: `// "Olá, mundo" em C
-        printf("Olá, mundo\\n");`,
+c: `// "Olá, mundo" em C
+printf("Olá, mundo\\n");`,
 
-      php: `<?php
-        // "Olá, mundo" em PHP
-        echo "Olá, mundo";`,
+php: `<?php
+// "Olá, mundo" em PHP
+echo "Olá, mundo";`,
 
-      go: `// "Olá, mundo" em Go
-        fmt.Println("Olá, mundo")`,
+go: `// "Olá, mundo" em Go
+fmt.Println("Olá, mundo")`,
     }),
     exercises: [
       {
