@@ -16,18 +16,16 @@ export function Footer() {
             </div>
 
             <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground">
-              O <span className="font-medium text-foreground">Prometeu Code</span>{" "}
-              é uma extensão do projeto principal{" "}
-              <span className="font-medium text-foreground">Prometeu</span>,
-              criada para tornar o aprendizado de programação mais acessível por
-              meio de uma experiência prática, gratuita e intuitiva.
+              O <span className="font-medium text-foreground">Prometeu Code</span> é uma extensão do
+              projeto principal <span className="font-medium text-foreground">Prometeu</span>,
+              criada para tornar o aprendizado de programação mais acessível por meio de uma
+              experiência prática, gratuita e intuitiva.
             </p>
 
             <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground">
-              Acreditamos que conhecimento deve ser compartilhado. Este projeto
-              nasceu para ajudar estudantes, curiosos e futuros desenvolvedores
-              a aprender programação sem barreiras, inspirando-se no mito de
-              Prometeu, que entregou o fogo à humanidade. Nossa missão é
+              Acreditamos que conhecimento deve ser compartilhado. Este projeto nasceu para ajudar
+              estudantes, curiosos e futuros desenvolvedores a aprender programação sem barreiras,
+              inspirando-se no mito de Prometeu, que entregou o fogo à humanidade. Nossa missão é
               compartilhar conhecimento sem esperar nada em troca.
             </p>
           </div>
@@ -68,8 +66,8 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 text-center text-sm text-muted-foreground md:flex-row">
           <span>
-            © {new Date().getFullYear()} Prometeu Code. Desenvolvido com ❤️ para
-            democratizar o ensino de programação.
+            © {new Date().getFullYear()} Prometeu Code. Desenvolvido com ❤️ para democratizar o
+            ensino de programação.
           </span>
 
           <a

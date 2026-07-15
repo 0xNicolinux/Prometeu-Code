@@ -8,9 +8,11 @@
 [![React 19](https://img.shields.io/badge/React-19-blue?style=for-the-badge\&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=for-the-badge\&logo=typescript)](https://www.typescriptlang.org/)
 
-<p align="center">
-<b>🌐 Acesse:</b> <a href="https://prometeu-code.vercel.app/">https://prometeu-code.vercel.app/</a>
-</p>
+- **13 módulos** de conteúdo, do "O que é um algoritmo?" até desafios que combinam variáveis, condicionais, loops e funções.
+- **39 exercícios práticos** (3 por módulo: fácil, intermediário e desafio), nos formatos múltipla escolha, verdadeiro/falso e "qual a saída deste código?".
+- **8 linguagens de programação** — Python, JavaScript, Java, C#, C++, C, PHP e Go — com o mesmo conteúdo teórico e os mesmos exercícios adaptados para a sintaxe de cada uma. O usuário escolhe a linguagem uma vez e todo o material se adapta.
+- **Progresso gamificado**: XP, níveis e uma "Conquista Prometeu Code" (certificado gerado como imagem, para baixar ou compartilhar) ao concluir todos os módulos.
+- O tema claro/escuro é salvo localmente no navegador do usuário — não há backend, banco de dados ou login.
 
 </div>
 
@@ -74,11 +76,18 @@ Inicie o servidor de desenvolvimento:
 ```bash
 npm run dev
 ```
-
-Para gerar a versão de produção:
-
-```bash
-npm run build
+src/
+  routes/            → páginas (roteamento por arquivo do TanStack Router)
+    __root.tsx        → shell da aplicação, meta tags, tratamento de erro/404
+    index.tsx          → página única do curso
+  components/
+    course/            → componentes específicos do curso (hero, exercícios, certificado, etc.)
+    ui/                 → componentes de interface reutilizáveis (shadcn/ui)
+  lib/
+    course-data.ts      → todo o conteúdo do curso: os 13 módulos e os 39 exercícios,
+                          nas 8 linguagens. Fonte única de verdade do conteúdo.
+    course-context.tsx  → estado global do curso (linguagem escolhida, progresso, XP,
+                          tema claro/escuro), com tema claro/escuro persistido em localStorage.
 ```
 
 ---
@@ -92,7 +101,10 @@ Sugestões, correções e melhorias são sempre bem-vindas.
 3. Faça seus commits.
 4. Abra um Pull Request.
 
----
+- `course-context.tsx` — padrão de contexto React com persistência em `localStorage` (para o tema) e
+  gamificação (XP, nível) que pode ser adaptado para outras trilhas de ensino.
+- `code-block.tsx` — realce de sintaxe leve, sem dependências externas, com suporte a
+  múltiplas linguagens.
 
 # 📄 Licença
 

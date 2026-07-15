@@ -1,5 +1,5 @@
 import { useCourse } from "@/lib/course-context";
-import { Moon, Sun, Zap, Brain, Flame, Trophy } from "lucide-react";
+import { Moon, Sun, Zap, Brain, Trophy } from "lucide-react";
 
 export function ProgressHeader() {
   const {
@@ -12,7 +12,6 @@ export function ProgressHeader() {
     correct,
     modulesCompleted,
     totalModules,
-    streak,
     dark,
     toggleDark,
   } = useCourse();

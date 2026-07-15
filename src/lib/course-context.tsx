@@ -16,7 +16,6 @@ export interface CourseState {
   dark: boolean;
   toggleDark: () => void;
 
-  // exerciseKey = `${moduleId}#${index}` -> correct?
   answers: Record<string, boolean>;
   answerExercise: (moduleId: string, exerciseIndex: number, correct: boolean) => void;
 
@@ -28,7 +27,6 @@ export interface CourseState {
   level: number;
   xpToNextLevel: number;
   xpIntoLevel: number;
-  streak: number;
   answered: number;
   correct: number;
   progress: number; // 0..1 of exercises answered
@@ -42,96 +40,57 @@ export interface CourseState {
 
 const Ctx = createContext<CourseState | null>(null);
 
-const STORAGE_KEY = "prometeu-code-state-v2";
+const THEME_STORAGE_KEY = "prometeu-code-theme";
 const XP_PER_LEVEL = 50;
-const LANGUAGE_IDS = new Set<Language>(LANGUAGES.map((l) => l.id));
-
-function isLanguage(v: unknown): v is Language {
-  return typeof v === "string" && LANGUAGE_IDS.has(v as Language);
-}
-
-interface Persisted {
-  language: Language;
-  dark: boolean;
-  answers: Record<string, boolean>;
-  studentName: string;
-  streak: number;
-  lastActive: string; // YYYY-MM-DD
-}
-
-function todayISO() {
-  const d = new Date();
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${y}-${m}-${day}`;
-}
-
-function dayDiff(a: string, b: string) {
-  const da = new Date(a + "T00:00:00").getTime();
-  const db = new Date(b + "T00:00:00").getTime();
-  return Math.round((db - da) / 86400000);
-}
 
 export function CourseProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("python");
-  const [dark, setDark] = useState(true);
+
+  // Synchronous initialization from localStorage on client-side
+  const [dark, setDark] = useState<boolean>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const raw = localStorage.getItem(THEME_STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && typeof parsed.dark === "boolean") {
+            return parsed.dark;
+          }
+        }
+        // Fallback to old key
+        const oldRaw = localStorage.getItem("prometeu-code-state-v2");
+        if (oldRaw) {
+          const oldParsed = JSON.parse(oldRaw);
+          if (oldParsed && typeof oldParsed.dark === "boolean") {
+            return oldParsed.dark;
+          }
+        }
+      } catch {
+        /* ignore */
+      }
+    }
+    return true; // default
+  });
+
   const [answers, setAnswers] = useState<Record<string, boolean>>({});
   const [studentName, setStudentName] = useState("");
-  const [streak, setStreak] = useState(0);
-  const [lastActive, setLastActive] = useState<string>("");
-
-  useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const p = JSON.parse(raw) as Partial<Persisted>;
-        if (isLanguage(p.language)) setLanguage(p.language);
-        if (typeof p.dark === "boolean") setDark(p.dark);
-        if (p.answers) setAnswers(p.answers);
-        if (typeof p.studentName === "string") setStudentName(p.studentName);
-        if (typeof p.streak === "number") setStreak(p.streak);
-        if (typeof p.lastActive === "string") setLastActive(p.lastActive);
-      }
-    } catch {
-      /* ignore */
-    }
-  }, []);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({
-          language,
-          dark,
-          answers,
-          studentName,
-          streak,
-          lastActive,
-        } satisfies Persisted),
-      );
-    } catch {
-      /* ignore */
-    }
-  }, [language, dark, answers, studentName, streak, lastActive]);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
   }, [dark]);
 
-  const bumpStreak = useCallback(() => {
-    const today = todayISO();
-    setLastActive((prev) => {
-      if (prev === today) return prev;
-      setStreak((s) => {
-        if (!prev) return 1;
-        const diff = dayDiff(prev, today);
-        if (diff === 1) return s + 1;
-        if (diff === 0) return s || 1;
-        return 1;
-      });
-      return today;
+  const toggleDark = useCallback(() => {
+    setDark((prev) => {
+      const next = !prev;
+      if (typeof window !== "undefined") {
+        document.documentElement.classList.toggle("dark", next);
+        try {
+          localStorage.setItem(THEME_STORAGE_KEY, JSON.stringify({ dark: next }));
+        } catch {
+          /* ignore */
+        }
+      }
+      return next;
     });
   }, []);
 
@@ -142,9 +101,8 @@ export function CourseProvider({ children }: { children: ReactNode }) {
         if (key in prev) return prev;
         return { ...prev, [key]: correct };
       });
-      bumpStreak();
     },
-    [bumpStreak],
+    [],
   );
 
   const reset = useCallback(() => {
@@ -176,7 +134,7 @@ export function CourseProvider({ children }: { children: ReactNode }) {
       language,
       setLanguage,
       dark,
-      toggleDark: () => setDark((d) => !d),
+      toggleDark,
       answers,
       answerExercise,
       studentName,
@@ -185,7 +143,6 @@ export function CourseProvider({ children }: { children: ReactNode }) {
       level,
       xpToNextLevel,
       xpIntoLevel,
-      streak,
       answered,
       correct,
       progress,
@@ -195,7 +152,7 @@ export function CourseProvider({ children }: { children: ReactNode }) {
       reset,
       isModuleComplete,
     };
-  }, [language, dark, answers, answerExercise, studentName, streak, reset, isModuleComplete]);
+  }, [language, dark, toggleDark, answers, answerExercise, studentName, reset, isModuleComplete]);
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
