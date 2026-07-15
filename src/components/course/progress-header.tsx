@@ -52,11 +52,6 @@ export function ProgressHeader() {
             title={`${xpIntoLevel}/${xpIntoLevel + xpToNextLevel} XP para o próximo nível`}
           />
           <Badge icon={<Zap className="h-3.5 w-3.5" />} label={`${xp} XP`} />
-          <Badge
-            icon={<Flame className="h-3.5 w-3.5 text-orange-400" />}
-            label={`${streak}`}
-            title="Sequência de dias"
-          />
           <Badge label={`${accuracy}%`} title="Acurácia" />
         </div>
 
