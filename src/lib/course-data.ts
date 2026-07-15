@@ -80,14 +80,30 @@ export const MODULES: Module[] = [
     summary:
       "Programar = escrever instruções. Algoritmo = passos ordenados. Lógica = raciocínio para montar esses passos.",
     example: cs({
-      python: `# "Olá, mundo" em Python\nprint("Olá, mundo")`,
-      javascript: `// "Olá, mundo" em JavaScript\nconsole.log("Olá, mundo");`,
-      java: `// Java\nSystem.out.println("Olá, mundo");`,
-      csharp: `// C#\nConsole.WriteLine("Olá, mundo");`,
-      cpp: `// C++\nstd::cout << "Olá, mundo" << std::endl;`,
-      c: `// C\nprintf("Olá, mundo\\n");`,
-      php: `<?php\necho "Olá, mundo";`,
-      go: `// Go\nfmt.Println("Olá, mundo")`,
+      python: `# "Olá, mundo" em Python
+        print("Olá, mundo")`,
+
+      javascript: `// "Olá, mundo" em JavaScript
+        console.log("Olá, mundo");`,
+
+      java: `// "Olá, mundo" em Java
+        System.out.println("Olá, mundo");`,
+
+      csharp: `// "Olá, mundo" em C#  
+        Console.WriteLine("Olá, mundo");`,
+
+      cpp: `// "Olá, mundo" em C++
+        std::cout << "Olá, mundo" << std::endl;`,
+
+      c: `// "Olá, mundo" em C
+        printf("Olá, mundo\\n");`,
+
+      php: `<?php
+        // "Olá, mundo" em PHP
+        echo "Olá, mundo";`,
+
+      go: `// "Olá, mundo" em Go
+        fmt.Println("Olá, mundo")`,
     }),
     exercises: [
       {
