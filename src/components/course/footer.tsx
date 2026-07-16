@@ -1,8 +1,8 @@
-import { Brain, Github, GraduationCap } from "lucide-react";
+import { Brain, Github , Heart, GraduationCap, LockOpen  } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-gradient-soft py-12">
+    <footer className="border-t border-border py-12">
       <div className="mx-auto max-w-6xl px-4">
         <div className="grid gap-10 md:grid-cols-[2fr_1fr]">
           {/* Logo e descrição */}
@@ -63,22 +63,26 @@ export function Footer() {
             </ul>
           </div>
         </div>
+        
+        <div className="mt-12 border-t border-border pt-8">
+          <blockquote className="mx-auto max-w-2xl text-center text-base italic text-muted-foreground sm:text-lg">
+            “Se eu puder deixar alguma marca no mundo através da tecnologia, quero que ela seja algo útil para as pessoas.”
+          </blockquote>
+        </div>
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 text-center text-sm text-muted-foreground md:flex-row">
-          <span>
-            © {new Date().getFullYear()} Prometeu Code. Desenvolvido com ❤️ para democratizar o
-            ensino de programação.
+          <span className="inline-flex items-center gap-1.5">
+            © {new Date().getFullYear()} Nicolinux — Projeto open source
+            <LockOpen className="h-4 w-4" />
           </span>
-
-          <a
-            href="https://github.com/Nicolinux-dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-foreground transition-all duration-300 hover:border-brand hover:text-brand hover:shadow-md"
-          >
-            <Github className="h-4 w-4" />
-            Nicolinux-dev
-          </a>
+          <p className="inline-flex items-center gap-1.5">
+            Criado com <Heart className="h-4 w-4" /> por{" "}
+            <strong className="text-foreground">Nícolas Adriel</strong>
+            <span aria-hidden="true">·</span>
+            <span className="text-xs">
+              Estudante de Análise e Desenvolvimento de Sistemas
+            </span>
+          </p>
         </div>
       </div>
     </footer>

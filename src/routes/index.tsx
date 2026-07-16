@@ -58,7 +58,7 @@ function LandingPage() {
           <Hero />
           <HowItWorks />
 
-          <section id="linguagem" className="border-t border-border py-16">
+          <section id="linguagem" className="py-16">
             <div className="mx-auto max-w-6xl px-4">
               <div className="rounded-2xl border border-border bg-card p-6 shadow-card sm:p-8">
                 <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-brand">

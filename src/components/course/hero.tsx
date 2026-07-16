@@ -2,7 +2,7 @@ import { ArrowRight, BookOpen } from "lucide-react";
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-gradient-hero">
+    <section id="top" className="relative overflow-hidden bg-gradient-hero py-20">
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 lg:grid-cols-[1.1fr_1fr] lg:py-28">
         <div className="flex flex-col justify-center">
           <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-brand/30 bg-card/60 px-3 py-1 text-xs font-medium text-brand backdrop-blur">
@@ -99,11 +99,11 @@ function HeroIllustration() {
       </div>
 
       {/* Floating badge */}
-      <div className="absolute -right-4 -top-4 hidden rotate-6 rounded-2xl border border-brand/40 bg-card p-3 text-xs shadow-brand sm:block">
+      <div className="absolute -right-5 -top-5 hidden rotate-0 rounded-2xl border border-brand/40 bg-card p-3 text-xs shadow-brand sm:block">
         <div className="font-semibold text-brand">+10 XP</div>
         <div className="text-muted-foreground">Exercício resolvido</div>
       </div>
-      <div className="absolute -bottom-4 -left-4 hidden -rotate-3 rounded-2xl border border-brand/40 bg-card p-3 text-xs shadow-brand sm:block">
+      <div className="absolute -bottom-5 -right-5 hidden -rotate-0 rounded-2xl border border-brand/40 bg-card p-3 text-xs shadow-brand sm:block">
         <div className="font-semibold text-brand">Fluxograma</div>
         <div className="text-muted-foreground">Início → Passo → Fim</div>
       </div>

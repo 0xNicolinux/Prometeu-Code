@@ -24,7 +24,7 @@ export function ProgressHeader() {
       <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3">
         <a href="#top" className="flex shrink-0 items-center gap-2">
           <div className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-brand text-brand-foreground shadow-brand">
-            <Brain className="h-4 w-4" />
+            <Brain className="h-6 w-6" />
           </div>
           <span className="hidden text-sm font-semibold sm:inline">Prometeu Code</span>
         </a>
