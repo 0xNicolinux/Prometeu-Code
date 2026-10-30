@@ -89,6 +89,14 @@ npm install
 npm run dev
 ~~~
 
+### Validar o banco de exercícios
+
+~~~bash
+npm run validate:content
+~~~
+
+Esse comando verifica a estrutura das questões, a distribuição das respostas corretas, sequências previsíveis, alternativas duplicadas, diferenças excessivas de tamanho e exemplos de código ausentes por linguagem. A validação também é executada automaticamente antes do build.
+
 ### Build e pré-visualização
 
 ~~~bash
