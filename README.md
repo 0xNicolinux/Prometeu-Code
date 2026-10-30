@@ -1,206 +1,115 @@
 <div align="center">
 
-# 💻 Prometeu Code
+# Prometeu Code
 
-### Aprenda programação na prática, uma linha de código por vez.
+### Aprenda lógica de programação praticando em diferentes linguagens.
 
-[![MIT License](https://img.shields.io/badge/License-MIT-orange.svg?style=for-the-badge)](LICENSE)
-[![React 19](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19-149eca?logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6?logo=typescript)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/license-MIT-informational)](./LICENSE)
 
-Uma plataforma gratuita e interativa para aprender os fundamentos da programação por meio de teoria objetiva, exemplos práticos e exercícios.
+Plataforma interativa de aprendizagem que combina explicações, exemplos de código, resumos e exercícios com feedback imediato.
 
 </div>
 
----
+## Visão geral
 
-# ✨ Destaques
+O **Prometeu Code** apresenta fundamentos de programação em uma trilha organizada por módulos. O estudante pode selecionar uma linguagem e acompanhar exemplos e exercícios adaptados à sintaxe escolhida, enquanto o conteúdo conceitual permanece equivalente.
 
-- 📚 **13 módulos** cobrindo desde algoritmos até funções.
-- 💻 **39 exercícios interativos** (3 por módulo):
-  - Fácil
-  - Intermediário
-  - Desafio
-- 🌐 **8 linguagens de programação**:
-  - Python
-  - JavaScript
-  - Java
-  - C#
-  - C++
-  - C
-  - PHP
-  - Go
-- 🔄 Todo o conteúdo é automaticamente adaptado para a linguagem escolhida.
-- ⚡ Feedback imediato para acelerar o aprendizado.
-- 🏆 Sistema de **XP**, **níveis** e **Conquista Prometeu Code** (certificado em imagem para download ou compartilhamento).
-- 🌙 Tema claro/escuro com persistência em `localStorage`.
-- 🚀 Sem backend, banco de dados ou login.
+A plataforma foi construída para apoiar a prática contínua de lógica de programação sem exigir cadastro ou uma infraestrutura de backend para começar a estudar.
 
----
+## Conteúdo e recursos
 
-# 📝 Sobre o projeto
+- **13 módulos** de fundamentos de programação.
+- **39 exercícios interativos**, com três níveis por módulo: fácil, intermediário e desafio.
+- **Oito linguagens disponíveis:** Python, JavaScript, Java, C#, C++, C, PHP e Go.
+- Exemplos e exercícios de código adaptados à linguagem selecionada.
+- Questões de múltipla escolha, verdadeiro ou falso e interpretação de saída de código.
+- Feedback com explicações após os exercícios.
+- Sistema de XP, níveis e conquista representada por certificado em imagem.
+- Tema claro/escuro, com preferência armazenada no navegador.
 
-O **Prometeu Code** foi criado para tornar o aprendizado de programação mais simples, prático e acessível.
+## Como funciona a seleção de linguagem
 
-Ao invés de depender de longas videoaulas, a plataforma combina:
+O estudante escolhe uma das linguagens disponíveis. A aplicação utiliza essa seleção para apresentar os exemplos e exercícios correspondentes. O objetivo didático é permitir que os mesmos fundamentos sejam estudados em diferentes sintaxes.
 
-- explicações objetivas;
-- exemplos de código;
-- resumos;
-- exercícios interativos;
-- feedback imediato.
+## Tecnologias
 
-Todo o conteúdo foi pensado para que o estudante pratique continuamente enquanto aprende.
+- **React 19**
+- **TypeScript**
+- **TanStack Start**
+- **TanStack Router**
+- **TanStack Query**
+- **Vite**
+- **Tailwind CSS**
+- **Radix UI**
+- **Lucide React**
 
-O projeto faz parte do ecossistema **Prometeu**, cuja missão é democratizar o acesso ao conhecimento por meio de ferramentas gratuitas e de qualidade.
+## Estrutura do projeto
 
----
-
-# 🎯 Como funciona
-
-O estudante escolhe sua linguagem de programação apenas uma vez.
-
-A partir desse momento, toda a plataforma é adaptada automaticamente:
-
-- exemplos;
-- exercícios;
-- desafios;
-- trechos de código.
-
-Assim, é possível aprender exatamente os mesmos conceitos em qualquer uma das oito linguagens disponíveis.
-
----
-
-# 🛠️ Tecnologias
-
-O projeto foi desenvolvido utilizando tecnologias modernas para oferecer uma experiência rápida, leve e responsiva.
-
-- React 19
-- TypeScript
-- TanStack Start
-- TanStack Router
-- Vite
-- Tailwind CSS
-- shadcn/ui
-- Lucide React
-
----
-
-# 📂 Estrutura do projeto
-
-```text
+~~~text
 src/
 ├── routes/
-│   ├── __root.tsx          # Shell da aplicação, meta tags e tratamento de erros
-│   └── index.tsx           # Página principal do curso
-│
+│   ├── __root.tsx
+│   └── index.tsx
 ├── components/
-│   ├── course/             # Componentes específicos do curso
-│   └── ui/                 # Componentes reutilizáveis (shadcn/ui)
-│
+│   ├── course/
+│   └── ui/
 └── lib/
-    ├── course-data.ts      # Conteúdo completo do curso
-    └── course-context.tsx  # Estado global, XP, tema e progresso
-```
+    ├── course-data.ts
+    └── course-context.tsx
+~~~
 
-### Organização
+### Dados do curso
 
-### `course-data.ts`
+`src/lib/course-data.ts` concentra a definição dos módulos, explicações, exemplos por linguagem e exercícios. Os exemplos de código são mantidos para cada uma das oito linguagens.
 
-É a **fonte única de verdade** do projeto.
+### Estado da aplicação
 
-Contém:
+`src/lib/course-context.tsx` gerencia o contexto compartilhado do curso, incluindo a linguagem selecionada, o progresso, XP, níveis e tema.
 
-- os 13 módulos;
-- os 39 exercícios;
-- todo o conteúdo adaptado para as 8 linguagens.
+## Executar localmente
 
----
+### Requisitos
 
-### `course-context.tsx`
+- Node.js
+- npm
 
-Responsável por gerenciar:
+### Instalação
 
-- linguagem selecionada;
-- progresso do usuário;
-- XP;
-- níveis;
-- tema claro/escuro.
-
-O tema é persistido utilizando `localStorage`.
-
----
-
-### `code-block.tsx`
-
-Componente de destaque de código que oferece:
-
-- realce de sintaxe leve;
-- suporte a múltiplas linguagens;
-- nenhuma dependência externa.
-
----
-
-# 🚀 Executando o projeto
-
-Clone o repositório:
-
-```bash
-git clone https://github.com/Nicolinux-dev/Prometeu-Code.git
-```
-
-Entre na pasta:
-
-```bash
+~~~bash
+git clone https://github.com/0xNicolinux/Prometeu-Code.git
 cd Prometeu-Code
-```
-
-Instale as dependências:
-
-```bash
 npm install
-```
+~~~
 
-Inicie o servidor:
+### Desenvolvimento
 
-```bash
+~~~bash
 npm run dev
-```
+~~~
 
----
+### Build e pré-visualização
 
-# 🤝 Contribuindo
+~~~bash
+npm run build
+npm run preview
+~~~
 
-Contribuições são sempre bem-vindas!
+### Verificação e formatação
 
-Se você encontrou um problema ou possui uma ideia para melhorar o projeto:
+~~~bash
+npm run lint
+npm run format
+~~~
 
-1. Faça um **Fork** do repositório.
-2. Crie uma nova branch.
+## Contribuição
 
-```bash
-git checkout -b minha-feature
-```
+1. Faça um fork do repositório.
+2. Crie uma branch para sua alteração.
+3. Implemente e valide a mudança localmente.
+4. Abra um pull request explicando o que foi alterado.
 
-3. Faça suas alterações.
-4. Realize os commits.
+## Licença
 
-```bash
-git commit -m "feat: adiciona nova funcionalidade"
-```
-
-5. Envie para seu fork.
-
-```bash
-git push origin minha-feature
-```
-
-6. Abra um **Pull Request**.
-
----
-
-# 📄 Licença
-
-Este projeto está licenciado sob a **MIT License**.
-
-Consulte o arquivo **LICENSE** para mais informações.
+O projeto está licenciado sob a [MIT License](./LICENSE).
