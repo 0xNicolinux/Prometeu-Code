@@ -54,3 +54,11 @@ npm run validate:content
 O validador verifica estrutura, quantidade de exercícios por módulo, respostas válidas, alternativas duplicadas, distribuição das posições corretas, sequências repetidas, pistas estatísticas de tamanho, explicações e exemplos de código para todas as linguagens cadastradas.
 
 **Limite do validador:** ele encontra problemas estruturais e padrões mensuráveis, mas não consegue provar que uma pergunta está pedagogicamente correta ou que todo distrator é plausível. Essa etapa exige revisão do conteúdo e, idealmente, execução dos exemplos.
+
+## Referências para elaboração e verificação
+
+- [KU Leuven Learning Lab — Multiple-choice questions](https://www.kuleuven.be/english/stuvo/education/leuvenlearninglab/support/assessment-feedback/design-assessment-and-feedback/designing-an-exam-or-test/multiple-choice-questions): enunciados claros, uma resposta inequívoca, distratores baseados em equívocos reais e alternativas semelhantes em extensão.
+- [Carnegie Mellon University — Creating Exams](https://www.cmu.edu/teaching/assessment/assesslearning/creatingexams.html): recomenda variar a posição da resposta, manter alternativas plausíveis e evitar pistas gramaticais ou de comprimento.
+- [Dhuliawala et al. — Chain-of-Verification Reduces Hallucination in Large Language Models (Findings of ACL 2024)](https://aclanthology.org/2024.findings-acl.212/): descreve um processo de rascunho seguido de perguntas independentes de verificação antes de produzir a resposta final.
+
+Essas referências orientam o processo; elas não substituem a validação dos conceitos específicos ensinados no curso.
